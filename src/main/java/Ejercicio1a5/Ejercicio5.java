@@ -1,3 +1,5 @@
+package Ejercicio1a5;
+
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.IOException;
@@ -5,11 +7,11 @@ import java.io.InputStreamReader;
 
 public class Ejercicio5 {
     public static void main(String[] args) {
-        String ruta1 = "C:\\Users\\emmal\\Desktop\\programacion\\Ejercicios_PSP\\target\\classes";
-        String ruta2 = "";
+        String classpath = System.getProperty("java.class.path");
 
-        lanzador(ruta1, new String[]{"java", "Ejercicio1"});
-        lanzador(ruta2, new String[]{"java", "Ejercicio3"});
+
+        lanzador(classpath, new String[]{"java", "Ejercicios1a5.Ejercicio1"});
+        //lanzador(ruta2, new String[]{"java", "Ejercicios1a5.Ejercicio3"});
 
     }
     public static void lanzador(String ruta, String[] cmd){
@@ -34,5 +36,3 @@ public class Ejercicio5 {
         }
     }
 }
-
-

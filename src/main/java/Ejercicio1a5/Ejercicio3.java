@@ -1,3 +1,5 @@
+package Ejercicio1a5;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;

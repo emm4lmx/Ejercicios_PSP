@@ -1,3 +1,5 @@
+package Ejercicio1a5;
+
 import java.io.IOException;
 
 public class Ejercicio1 {
