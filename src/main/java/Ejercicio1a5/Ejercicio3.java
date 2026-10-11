@@ -4,6 +4,14 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
+/**
+ * Realiza un programa que abra los siguientes procesos utilizando el mismo método para crear
+ * cada uno de ellos:
+ * - Abrir el intérprete de comandos mostrando la fecha del sistema.
+ * - Abrir el intérprete de comandos mostrando la hora del sistema.
+ * - Visualizar la información proporcionada por IPCONFIG.
+ */
+
 public class Ejercicio3 {
     public static void main(String[] args) {
         System.out.println("FECHA DEL SISTEMA: ");
@@ -13,11 +21,12 @@ public class Ejercicio3 {
         ejecutarComando("cmd.exe", "/c", "time", "/t");
 
         System.out.println("RESULTADO IPCONFIG: ");
-        ejecutarComando("ipconfig");
+        ejecutarComando("cmd.exe", "/c", "ipconfig");
     }
 
     /**
      * @description: Metodo para ejecutar comandos en cmd.exe
+     * el metodo recibe un array de strings (String...)
      * @param comando
      */
     public static void ejecutarComando(String... comando) {

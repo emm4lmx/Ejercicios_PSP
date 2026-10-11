@@ -2,6 +2,12 @@ package Ejercicio1a5;
 
 import java.io.IOException;
 
+/**
+ * Implementa un método llamado lanzaProcesos que:
+ * 1. Abra Notepad.exe.
+ * 2. Espere a que dicho proceso finalice.
+ * 3. A continuación abra write.exe.
+ */
     public class Ejercicio2 {
         public static void main(String[] args) {
             ProcessBuilder pbNotepad = new ProcessBuilder("notepad.exe");

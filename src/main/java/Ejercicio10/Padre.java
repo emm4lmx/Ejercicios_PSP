@@ -6,6 +6,14 @@ import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.util.Scanner;
 
+/**
+ * Crea un proceso padre que genere o solicite al usuario una secuencia de números enteros.
+ * Cada número se enviará a un proceso hijo.
+ * El hijo responderá indicando:
+ * - si el número es par o impar;
+ * - si es positivo, negativo o cero.
+ * El padre mostrará cada respuesta. La comunicación se mantendrá abierta para procesar varios números sin crear un proceso hijo nuevo en cada petición. El programa terminará al enviar FIN.
+ */
 public class Padre {
 
     public static void main(String[] args) {
@@ -20,13 +28,13 @@ public class Padre {
             PrintWriter writer = new PrintWriter(hijo.getOutputStream(), true);
             BufferedReader reader = new BufferedReader(new InputStreamReader(hijo.getInputStream()));
 
-            Scanner sc = new Scanner(System.in);
+            Scanner entrada = new Scanner(System.in);
             String linea;
 
             //bucle para enviar numeros al hijo
             do {
                 System.out.print("Introduce un número entero (FIN para terminar): ");
-                linea = sc.nextLine().trim();
+                linea = entrada.nextLine().trim();
 
                 writer.println(linea);
 
@@ -41,7 +49,7 @@ public class Padre {
             //espera a que el hijo termine
             hijo.waitFor();
             System.out.println("Programa terminado.");
-            sc.close();
+            entrada.close();
 
         } catch (IOException | InterruptedException e) {
             System.out.println("Error: " + e.getMessage());

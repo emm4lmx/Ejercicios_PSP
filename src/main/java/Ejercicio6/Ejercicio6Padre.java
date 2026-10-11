@@ -6,6 +6,12 @@ import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.util.Scanner;
 
+/**
+ * Crea un proceso hijo encargado de generar números de lotería: un número aleatorio comprendido entre 0 y 99999.
+ * Cada vez que reciba una petición del proceso padre, el hijo escribirá el número generado en su salida estándar.
+ * Crea además un proceso padre que solicite sucesivamente al hijo un nuevo número. El proceso terminará cuando el usuario indique que no desea otro número,
+ * respondiendo NO a la pregunta correspondiente.
+ */
 public class Ejercicio6Padre {
     public static void main(String[] args) {
         String classpath = System.getProperty("java.class.path");
@@ -23,7 +29,7 @@ public class Ejercicio6Padre {
             String respuesta;
 
             do {
-                printWriter.println("DAME");
+                printWriter.println("SI");
                 String numero = bufferedReader.readLine();
                 System.out.println("NUMERO DE LOTERIA: " + numero);
 

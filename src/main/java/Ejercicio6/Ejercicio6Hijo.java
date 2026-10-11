@@ -21,7 +21,6 @@ public class Ejercicio6Hijo {
             System.out.flush();
 
         }
-        System.out.println("termina");
         entrada.close();
     }
 }

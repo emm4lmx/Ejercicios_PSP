@@ -3,6 +3,15 @@ package Ejercicio7;
 import java.io.*;
 import java.util.Scanner;
 
+/**
+ * Crea un proceso hijo llamado Mayusculas que reciba desde un proceso padre una línea de texto y devuelva dicho texto convertido a mayúsculas.
+ * El proceso padre:
+ * - Leerá una línea de texto introducida por el usuario.
+ * - Enviará dicha línea a la entrada estándar del hijo utilizando el flujo de salida asociado al proceso.
+ * - Leerá la respuesta del hijo.
+ * - Mostrará en pantalla el texto recibido.
+ * La comunicación entre padre e hijo será bidireccional mediante streams.
+ */
 public class Ejercicio7Padre {
     public static void main(String[] args) {
 
@@ -19,16 +28,17 @@ public class Ejercicio7Padre {
             do {
                 System.out.print("introduce el mensaje que quieres modificar: ");
                 linea = entrada.nextLine();
+                //envio la respuesta al hijo
                 printWriter.println(linea);
-                String mensajeModificado = reader.readLine();
-                System.out.println("Mensaje modificado: " + mensajeModificado);
 
-                //System.out.print("que otro mensaje quieres modificar: ");
+                //solo leo la respuesta si no es FIN
+                if (!linea.equalsIgnoreCase("FIN")) {
+                    String mensajeModificado = reader.readLine();
+                    System.out.println("Mensaje modificado: " + mensajeModificado);
+                }
 
             } while (!linea.equalsIgnoreCase("FIN"));
 
-
-            printWriter.println("FIN");
 
             System.out.println("esperando a que acabe el proceso hijo...");
             p.waitFor();

@@ -6,6 +6,15 @@ import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.util.Scanner;
 
+/**
+ * Crea un proceso hijo que reciba líneas de texto y, por cada línea recibida, devuelva tres datos:
+ * - número de caracteres;
+ * - número de palabras;
+ * - número de vocales.
+ * El proceso padre pedirá frases al usuario, las enviará al hijo y mostrará la respuesta recibida.
+ * La ejecución finalizará cuando el usuario introduzca FIN.
+ */
+
 public class Padre {
 
     public static void main(String[] args) {
@@ -19,12 +28,12 @@ public class Padre {
             PrintWriter writer = new PrintWriter(hijo.getOutputStream(), true);
             BufferedReader reader = new BufferedReader(new InputStreamReader(hijo.getInputStream()));
 
-            Scanner sc = new Scanner(System.in);
+            Scanner entrada = new Scanner(System.in);
             String linea;
 
             do {
                 System.out.print("Introduce frase (FIN para terminar): ");
-                linea = sc.nextLine();
+                linea = entrada.nextLine();
 
                 //le paso al hijo lo que escribe el usuario
                 writer.println(linea);
@@ -40,7 +49,7 @@ public class Padre {
             //espero a que el hijo acabe
             hijo.waitFor();
             System.out.println("Programa terminado.");
-            sc.close(); //cierro el scanner
+            entrada.close(); //cierro el scanner
 
         } catch (IOException | InterruptedException e) {
             System.out.println("Error: " + e.getMessage());

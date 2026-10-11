@@ -2,6 +2,10 @@ package Ejercicio1a5;
 
 import java.io.IOException;
 
+/**
+ * Realiza después una pequeña modificación para que write.exe se ejecute 10 segundos después de abrir el primer proceso (Notepad.exe).
+ */
+
 public class Ejercicio2Parte2 {
     public static void main(String[] args) {
         ProcessBuilder pbNotepad = new ProcessBuilder("notepad.exe");
